@@ -1,8 +1,8 @@
 package com.api.foro_hub.infra.errores;
 
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.ValidationException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,8 +23,13 @@ public class TratadorDeErrores {
         return ResponseEntity.badRequest().body(errores);
     }
 
-    @ExceptionHandler(ValidationException.class)
-    public ResponseEntity errorHandlerValidacionUsuario(Exception e) {
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity errorNotReadable(HttpMessageNotReadableException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
+    @ExceptionHandler(ValidacionDeIntegridad.class)
+    public ResponseEntity errorHandlerValidacionUsuario(ValidacionDeIntegridad e) {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 

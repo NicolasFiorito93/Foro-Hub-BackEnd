@@ -1,7 +1,6 @@
 package com.api.foro_hub.domain.usuario;
 
 import com.api.foro_hub.infra.errores.ValidacionDeIntegridad;
-import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +17,7 @@ public class UsuarioService {
 
     public DatosRespuestaUsuario registrarUsuario(DatosRegistroUsuario datosRegistroUsuario) {
         if (usuarioRepository.existsByEmail(datosRegistroUsuario.email())) {
-            throw new ValidationException("El email ya se encuentra registrado");
+            throw new ValidacionDeIntegridad("El email ya se encuentra registrado");
         }
         var usuario = usuarioRepository.save(new Usuario(datosRegistroUsuario));
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
@@ -36,7 +35,7 @@ public class UsuarioService {
 
         var usuario = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
         if (!usuario.getEmail().equalsIgnoreCase(datosActualizarUsuario.email()) && usuarioRepository.existsByEmail(datosActualizarUsuario.email())) {
-            throw new ValidationException("El email ya se encuentra registrado");
+            throw new ValidacionDeIntegridad("El email ya se encuentra registrado");
         }
         if (datosActualizarUsuario.nombre() != null) {
             usuario.setNombre(datosActualizarUsuario.nombre());
@@ -52,7 +51,7 @@ public class UsuarioService {
 
     public void desactivarUsuario(Long id) {
         if (!usuarioRepository.existsById(id)) {
-            throw new ValidationException("No se encontro el usuario.");
+            throw new ValidacionDeIntegridad("No se encontro el usuario.");
         }
         var usuario = usuarioRepository.getReferenceById(id);
         usuario.setActivo(false);
