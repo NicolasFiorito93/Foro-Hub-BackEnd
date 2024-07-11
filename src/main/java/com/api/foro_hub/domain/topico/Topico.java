@@ -4,10 +4,7 @@ import com.api.foro_hub.domain.curso.Curso;
 import com.api.foro_hub.domain.respuesta.Respuesta;
 import com.api.foro_hub.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,6 +12,7 @@ import java.util.List;
 @Entity(name = "Topico")
 @Table(name = "topicos")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -37,4 +35,12 @@ public class Topico {
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Respuesta> respuestas;
 
+    public Topico(String titulo, String mensaje, Usuario usuario, Curso curso) {
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.autor = usuario;
+        this.curso = curso;
+        this.fechaCreacion = LocalDateTime.now();
+        this.estado = Estado.ABIERTO;
+    }
 }
