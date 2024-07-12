@@ -1,11 +1,11 @@
 # Foro Hub - API REST
-##Descripción
+## Descripción
 Foro Hub es una API REST desarrollada como parte del challenge de Alura Latam. Esta API proporciona funcionalidades para gestionar usuarios, cursos, tópicos y respuestas en un foro. Está construida utilizando Spring Boot y otras tecnologías modernas para asegurar un rendimiento robusto y seguro.
 
-##Objetivo
+## Objetivo
 El objetivo de este proyecto es implementar una API REST que permita a los usuarios interactuar con un foro de manera eficiente y segura, cumpliendo con los requisitos y estándares establecidos por Alura Latam en su desafío.
 
-##Características
+## Características
 Gestión de Usuarios: Registro, autenticación, actualización y desactivación de usuarios.
 Gestión de Cursos: Creación, actualización y eliminación de cursos.
 Gestión de Tópicos: Creación, listado, búsqueda, actualización y eliminación de tópicos.
@@ -24,7 +24,7 @@ Spring Boot DevTools (para facilitar el desarrollo)
 Swagger/OpenAPI (para la documentación de la API)
 JWT (para la gestión de tokens de seguridad)
 
-##Uso
+## Uso
 La API expone los siguientes endpoints principales:
 
 /usuarios: Endpoints para la gestión de usuarios.
