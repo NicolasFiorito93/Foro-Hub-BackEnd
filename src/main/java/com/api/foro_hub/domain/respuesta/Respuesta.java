@@ -3,16 +3,14 @@ package com.api.foro_hub.domain.respuesta;
 import com.api.foro_hub.domain.topico.Topico;
 import com.api.foro_hub.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity(name = "Respuesta")
 @Table(name = "respuestas")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -30,6 +28,14 @@ public class Respuesta {
     @JoinColumn(name = "id_usuario")
     private Usuario autor;
     private Boolean solucion;
+    private Boolean borrado;
 
 
+    public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta, Usuario usuario, Topico topico) {
+        this.respuesta = datosRegistroRespuesta.respuesta();
+        this.topico = topico;
+        this.fechaCreacion = LocalDateTime.now();
+        this.autor = usuario;
+        this.borrado = false;
+    }
 }
