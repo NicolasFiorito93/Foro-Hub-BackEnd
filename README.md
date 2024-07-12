@@ -7,12 +7,12 @@ El objetivo de este proyecto es implementar una API REST que permita a los usuar
 
 ## Características
 * Gestión de Usuarios: Registro, autenticación, actualización y desactivación de usuarios.
-Gestión de Cursos: Creación, actualización y eliminación de cursos.
-Gestión de Tópicos: Creación, listado, búsqueda, actualización y eliminación de tópicos.
-Gestión de Respuestas: Creación, listado y eliminación de respuestas a tópicos.
-Seguridad: Implementación de JWT para autenticación y autorización de usuarios.
-Validaciones: Validaciones de datos de entrada para asegurar la integridad de la información.
-Tecnologías Utilizadas
+* Gestión de Cursos: Creación, actualización y eliminación de cursos.
+* Gestión de Tópicos: Creación, listado, búsqueda, actualización y eliminación de tópicos.
+* Gestión de Respuestas: Creación, listado y eliminación de respuestas a tópicos.
+* Seguridad: Implementación de JWT para autenticación y autorización de usuarios.
+* Validaciones: Validaciones de datos de entrada para asegurar la integridad de la información.
+## Tecnologías Utilizadas
 Java 17
 Spring Boot 3.3.1
 Spring Data JPA
