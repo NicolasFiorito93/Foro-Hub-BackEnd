@@ -6,7 +6,7 @@ Foro Hub es una API REST desarrollada como parte del challenge de Alura Latam. E
 El objetivo de este proyecto es implementar una API REST que permita a los usuarios interactuar con un foro de manera eficiente y segura, cumpliendo con los requisitos y estándares establecidos por Alura Latam en su desafío.
 
 ## Características
-Gestión de Usuarios: Registro, autenticación, actualización y desactivación de usuarios.
+* Gestión de Usuarios: Registro, autenticación, actualización y desactivación de usuarios.
 Gestión de Cursos: Creación, actualización y eliminación de cursos.
 Gestión de Tópicos: Creación, listado, búsqueda, actualización y eliminación de tópicos.
 Gestión de Respuestas: Creación, listado y eliminación de respuestas a tópicos.
